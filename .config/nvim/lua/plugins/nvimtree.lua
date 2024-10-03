@@ -3,38 +3,35 @@ local Plugin = { "nvim-tree/nvim-tree.lua" }
 local HEIGHT_RATIO = 0.8
 local WIDTH_RATIO = 0.9
 
-local function has_uncommitted_changes()
+--[[ Git管理されているかを確認する ]]
+local function is_git_repo()
 	local handle = io.popen('git rev-parse --is-inside-work-tree 2>/dev/null')
 	local result = handle:read("*a")
 	handle:close()
 
-	if result:match("true") == nil then
+	return result:match("true") ~= nil
+end
+
+--[[ 未コミットの変更があるか確認する]]
+local function has_uncommitted_changes()
+	if not is_git_repo() then
 		return false
 	end
 
-	handle = io.popen('git status --porcelain 2>/dev/null')
+	local handle = io.popen('git status --porcelain 2>/dev/null')
 	local git_status = handle:read("*a")
 	handle:close()
 
-	if git_status ~= "" then
-		return true
-	else
-		return false
-	end
+	return git_status ~= ""
 end
 
+--[[ 現在のブランチ名を取得する ]]
 local function get_current_branch()
-	-- Gitが管理しているか確認
-	local handle = io.popen('git rev-parse --is-inside-work-tree 2>/dev/null')
-	local is_git_repo = handle:read("*a"):match("true") ~= nil
-	handle:close()
-
-	if not is_git_repo then
+	if not is_git_repo() then
 		return nil
 	end
 
-	-- 現在のブランチ名を取得
-	handle = io.popen('git rev-parse --abbrev-ref HEAD 2>/dev/null')
+	local handle = io.popen('git rev-parse --abbrev-ref HEAD 2>/dev/null')
 	local branch_name = handle:read("*a"):gsub("%s+", "")
 	handle:close()
 
@@ -45,8 +42,7 @@ local function get_current_branch()
 	return branch_name
 end
 
-
-
+-- [[ラベルを生成する]]
 local function label(path)
 	local str = ""
 	local cwd = vim.fn.getcwd()
@@ -97,9 +93,9 @@ Plugin.opts = {
 
 	renderer = {
 		root_folder_label = label,
-		group_empty = label,
-		--		root_folder_label = true,
-		root_folder_modifier = ':t',
+		-- group_empty = label,
+		-- root_folder_label = true,
+		-- root_folder_modifier = ':t',
 		icons = {
 			web_devicons = {
 				file = {
@@ -183,7 +179,7 @@ Plugin.opts = {
 	filters = {
 		dotfiles = false,
 		git_ignored = false,
-		custom = { ".git" },
+		custom = {},
 	},
 
 }
