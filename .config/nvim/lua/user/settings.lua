@@ -16,3 +16,4 @@ vim.o.statusline = ""
 vim.o.laststatus = 0
 vim.o.cmdheight = 0
 vim.opt.fillchars = { eob = " " }
+vim.opt.termguicolors = true
