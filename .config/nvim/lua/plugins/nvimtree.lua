@@ -187,7 +187,6 @@ Plugin.opts = {
 function Plugin.init()
 	vim.g.loaded_netrw = 1
 	vim.g.loaded_netrwPlugin = 1
-	vim.opt.termguicolors = true
 end
 
 Plugin.keys = {

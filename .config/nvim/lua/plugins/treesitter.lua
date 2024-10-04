@@ -1,7 +1,8 @@
 local Plugin = { "nvim-treesitter/nvim-treesitter" }
 Plugin.enabled = true
 Plugin.build = ":TSUpdate"
-Plugin.lazy = vim.fn.argc(-1) == 0
+-- Plugin.lazy = vim.fn.argc(-1) == 0
+Plugin.lazy = false
 Plugin.cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" }
 
 function Plugin.init(plugin)
