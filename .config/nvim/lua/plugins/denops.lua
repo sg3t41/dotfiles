@@ -1,5 +1,3 @@
-return {
-	{
-		"vim-denops/denops.vim", lazy = false,
-	},
-}
+local Plugin = { "vim-denops/denops.vim" }
+
+return Plugin
