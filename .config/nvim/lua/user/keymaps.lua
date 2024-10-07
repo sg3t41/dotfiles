@@ -7,8 +7,8 @@ vim.keymap.set("n", "<leader>a", ":keepjumps normal! ggVG<cr>", { desc = "Select
 -- Basic clipboard interaction
 -- This setting replaces the need for custom clipboard key mappings
 -- user/serttigs.lua -> vim.opt.clipboard = "unnamedplus"
--- vim.keymap.set({ "n", "x" }, "y", '"+y', { desc = "Copy to clipboard" })
--- vim.keymap.set({ "n", "x" }, "p", '"+p', { desc = "Paste clipboard content" })
+--vim.keymap.set({ "n", "x" }, "y", '"+y', { desc = "Copy to clipboard" })
+--vim.keymap.set({ "n", "x" }, "p", '"+p', { desc = "Paste clipboard content" })
 
 -- Commands
 vim.keymap.set("n", "<leader>w", "<cmd>write<cr>", { desc = "Save buffer" })

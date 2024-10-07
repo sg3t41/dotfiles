@@ -133,6 +133,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 #starship
 eval "$(starship init bash)"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 . "$HOME/.deno/env"
+. "/home/sg3t41/.deno/env"
+
+export PATH=$PATH:$HOME/.local/kitty.app/bin
