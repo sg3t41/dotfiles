@@ -24,3 +24,7 @@
 !/.bin/install.sh
 !/.bin/dockerprune.sh
 !/.bin/nvimclean.sh
+
+!/.skk
+!/.skk/SKK-JISYO.L
+
