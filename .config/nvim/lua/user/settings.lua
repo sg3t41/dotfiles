@@ -17,3 +17,16 @@ vim.o.laststatus = 0
 vim.o.cmdheight = 0
 vim.opt.fillchars = { eob = " " }
 vim.opt.termguicolors = true
+
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+

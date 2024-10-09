@@ -4,9 +4,6 @@ vim.g.mapleader = " "
 -- Shortcuts
 vim.keymap.set("n", "<leader>a", ":keepjumps normal! ggVG<cr>", { desc = "Select all text in buffer" })
 
--- Basic clipboard interaction
--- This setting replaces the need for custom clipboard key mappings
--- user/serttigs.lua -> vim.opt.clipboard = "unnamedplus"
 --vim.keymap.set({ "n", "x" }, "y", '"+y', { desc = "Copy to clipboard" })
 --vim.keymap.set({ "n", "x" }, "p", '"+p', { desc = "Paste clipboard content" })
 

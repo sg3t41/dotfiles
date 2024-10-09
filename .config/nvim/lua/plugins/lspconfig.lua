@@ -14,7 +14,10 @@ Plugin.event = { "BufReadPre", "BufNewFile" }
 
 function Plugin.init()
 	vim.diagnostic.config({
-		virtual_text = true,
+		-- virtual_text = true,
+		virtual_text = {
+			severity = { min = vim.diagnostic.severity.ERROR },
+		},
 		severity_sort = false,
 		underline = true,
 		float = {
@@ -59,6 +62,11 @@ function Plugin.config()
 					capabilities = lsp_capabilities,
 				})
 			end,
+
+			--		lspconfig['vtsls'].setup({
+			--			-- ESLintと被るからdiagnosticを非表示にする
+			--			["textDocument/publishDiagnostics"] = function() end
+			--		})
 		},
 	})
 

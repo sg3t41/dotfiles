@@ -17,7 +17,10 @@ RUN apt update && \
 	cargo \
 	cmake \
 	libssl-dev \
-	ripgrep
+	ripgrep \
+	xsel \
+	postgresql \
+	postgresql-client
 
 RUN locale-gen ja_JP.UTF-8
 
@@ -29,9 +32,21 @@ RUN wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64
 	rm -rf nvim-linux64 && \
 	rm nvim-linux64.tar.gz
 
-COPY . /dotfiles
+# nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 
-RUN cargo install starship
+# deno
+RUN curl -fsSL https://deno.land/x/install/install.sh | sh
+
+# NERDFont Hack
+# RUN git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+# RUN cd nerd-fonts && ./install.sh Hack
+# RUN fc-cache -fv
+
+#starship
+RUN curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+COPY . /dotfiles
 
 RUN bash dotfiles/.bin/install.sh
 
