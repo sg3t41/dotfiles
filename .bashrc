@@ -133,7 +133,8 @@ export PATH="$PATH:$HOME/.cargo/bin"
 #starship
 eval "$(starship init bash)"
 
-. "$HOME/.deno/env"
-. "/home/sg3t41/.deno/env"
+export DENO_INSTALL="/$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 export PATH=$PATH:$HOME/.local/kitty.app/bin
+export PATH=$PATH:/usr/local/go/bin

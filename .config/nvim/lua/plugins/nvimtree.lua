@@ -46,7 +46,7 @@ end
 local function label(path)
 	local str = ""
 	local cwd = vim.fn.getcwd()
-	local current_dir = cwd:match("^.+/(.+)$")
+	local current_dir = cwd:match("^.+/(.+)$") or cwd
 
 	local current_branch = get_current_branch()
 	if current_branch then

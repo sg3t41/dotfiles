@@ -90,7 +90,6 @@ function Plugin.config()
 
 		formatting = {
 			format = function(entry, vim_item)
-				-- その他の補完候補のメニュー表示
 				vim_item.menu = ({
 					skkeleton = "[skkelton]",
 					nvim_lsp = "",
