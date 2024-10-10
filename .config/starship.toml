@@ -1,9 +1,8 @@
 format = """
+$container\
 $username\
 $hostname\
-\
 $directory\
-\
 $git_branch\
 $git_state\
 $git_status\
@@ -40,3 +39,6 @@ style = "bright-black"
 [cmd_duration]
 disabled = true
 
+[container]
+format = '[$symbol]($style) '
+symbol = "🐳"
