@@ -55,7 +55,7 @@ function Plugin.config()
 	require("mason").setup()
 
 	require("mason-lspconfig").setup({
-		ensure_installed = { "lua_ls", "vtsls" },
+		ensure_installed = { "lua_ls", "vtsls", "gopls" },
 		handlers = {
 			function(server)
 				lspconfig[server].setup({
