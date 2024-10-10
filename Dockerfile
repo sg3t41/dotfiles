@@ -20,7 +20,8 @@ RUN apt update && \
 	ripgrep \
 	xsel \
 	postgresql \
-	postgresql-client
+	postgresql-client \
+	golang
 
 RUN locale-gen ja_JP.UTF-8
 
@@ -34,6 +35,7 @@ RUN wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64
 
 # nodejs
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+RUN apt install -y nodejs
 
 # deno
 RUN curl -fsSL https://deno.land/x/install/install.sh | sh
