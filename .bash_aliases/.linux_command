@@ -4,3 +4,4 @@ alias c='clear'
 alias ls='ls -la --color=auto'
 alias rmswp='find . -name "*.swp" -type f -delete'
 alias dprune="bash ~/.bin/dockerprune.sh"
+alias so="source ~/.bashrc"
