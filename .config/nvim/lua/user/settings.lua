@@ -17,7 +17,9 @@ vim.o.laststatus = 0
 vim.o.cmdheight = 0
 vim.opt.fillchars = { eob = " " }
 vim.opt.termguicolors = true
+vim.o.shell = "/bin/bash"
 
+-- コンテナとホスト間のコピペでOSC52シーケンスを使用するための設定
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
