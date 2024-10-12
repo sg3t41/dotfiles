@@ -1,8 +1,9 @@
 local Plugin = { "nvim-treesitter/nvim-treesitter" }
-Plugin.enabled = true
+-- うまく効かない為、いったん無効
+Plugin.enabled = false
 Plugin.build = ":TSUpdate"
--- Plugin.lazy = vim.fn.argc(-1) == 0
-Plugin.lazy = false
+Plugin.lazy = vim.fn.argc(-1) == 0
+
 Plugin.cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" }
 
 function Plugin.init(plugin)
@@ -24,6 +25,7 @@ Plugin.opts = {
 		"diff",
 		"html",
 		"javascript",
+		"go",
 		"jsdoc",
 		"json",
 		"jsonc",
@@ -45,11 +47,9 @@ Plugin.opts = {
 		"yaml",
 	},
 	incremental_selection = {
-		enable = false,
 	},
 	textobjects = {
 		move = {
-			enable = false,
 		},
 	},
 }

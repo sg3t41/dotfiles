@@ -21,7 +21,8 @@ RUN apt update && \
 	xsel \
 	postgresql \
 	postgresql-client \
-	golang
+	golang \
+	figlet
 
 RUN locale-gen ja_JP.UTF-8
 
