@@ -17,7 +17,7 @@ Plugin.opts = {
 	},
 	auto_install = true,
 	sync_install = true,
-	ensure_installed = "all",
+	ensure_installed = { "markdown", "go", "typescript", "javascript" },
 }
 
 return Plugin
