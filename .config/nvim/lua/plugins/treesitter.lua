@@ -1,6 +1,5 @@
 local Plugin = { "nvim-treesitter/nvim-treesitter" }
--- うまく効かない為、いったん無効
-Plugin.enabled = false
+Plugin.enabled = true
 Plugin.build = ":TSUpdate"
 Plugin.lazy = false
 
@@ -12,35 +11,13 @@ function Plugin.init(plugin)
 end
 
 Plugin.opts = {
-	highlight = { enable = true },
-	indent = { enable = false },
-	ensure_installed = {
-		"bash",
-		"c",
-		"diff",
-		"html",
-		"javascript",
-		"go",
-		"jsdoc",
-		"json",
-		"jsonc",
-		"lua",
-		"luadoc",
-		"luap",
-		"markdown",
-		"markdown_inline",
-		"printf",
-		"python",
-		"query",
-		"regex",
-		"toml",
-		"tsx",
-		"typescript",
-		"vim",
-		"vimdoc",
-		"xml",
-		"yaml",
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
 	},
+	auto_install = true,
+	sync_install = true,
+	ensure_installed = "all",
 }
 
 return Plugin
