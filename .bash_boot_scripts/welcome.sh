@@ -4,7 +4,7 @@
 if command -v figlet > /dev/null; then
     output=$(figlet ready)
 else
-    output="ready"
+    output="welcome"
 fi
 
 echo "$output"
