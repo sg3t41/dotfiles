@@ -29,3 +29,6 @@
 !/.skk/SKK-JISYO.L
 
 !/.gitattributes
+
+!/.ssh
+!/.ssh/**
