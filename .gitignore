@@ -14,6 +14,8 @@
 !/.config/kitty
 !/.config/kitty/**
 !/.config/starship.toml
+!/.config/git
+!/.config/git/**
 
 !/.bash_aliases
 !/.bash_aliases/.linux_command

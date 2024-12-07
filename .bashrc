@@ -124,7 +124,7 @@ if [ -d ~/.software_configurations ]; then
 fi
 
 # Supports Japanese
-# export LANG=ja_JP.UTF-8
+export LANG=ja_JP.UTF-8
 
 PS1='\e[32m\u@\h\e[37m:\e[36m \w\n\e[0m\$ '
 
