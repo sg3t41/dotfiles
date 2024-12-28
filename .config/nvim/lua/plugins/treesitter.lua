@@ -1,7 +1,7 @@
 local Plugin = { "nvim-treesitter/nvim-treesitter" }
-Plugin.enabled = true
 Plugin.build = ":TSUpdate"
 Plugin.lazy = false
+
 
 Plugin.cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" }
 
@@ -12,7 +12,7 @@ end
 
 Plugin.opts = {
 	highlight = {
-		enable = true,
+		enable = false,
 		additional_vim_regex_highlighting = false,
 	},
 	auto_install = true,
