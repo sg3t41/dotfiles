@@ -2,7 +2,6 @@ local Plugin = { "hrsh7th/nvim-cmp" }
 Plugin.enabled = true
 Plugin.dependencies = {
 	{ "zbirenbaum/copilot.lua" },
-	{ "rinx/cmp-skkeleton" },
 
 	-- Completion sources
 	{ "hrsh7th/cmp-buffer" },
@@ -49,21 +48,22 @@ function Plugin.config()
 			{ name = "luasnip", keyword_length = 2 },
 		},
 		window = {
-			--	completion = cmp.config.window.bordered(),
-			--	documentation = cmp.config.window.bordered(),
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
+		},
 
-			completion = {
-				winhighlight = "Normal:CmpNormal",
-			},
-			documentation = {
-				winhighlight = "Normal:CmpNormal",
-			},
+		-- 以下の部分で選択した後、documentationウィンドウにフォーカスを移動
+		completion = {
+			completeopt = 'menu,menuone,noinsert', -- これでメニューが自動的に表示される
 		},
 
 		-- See :help cmp-mapping
 		mapping = {
 			["<Up>"] = cmp.mapping.select_prev_item(select_opts),
 			["<Down>"] = cmp.mapping.select_next_item(select_opts),
+
+			['<C-f>'] = cmp.mapping.scroll_docs(4), -- 下方向にスクロール
+			['<C-b>'] = cmp.mapping.scroll_docs(-4), -- 上方向にスクロール
 
 			["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
 			["<C-n>"] = cmp.mapping.select_next_item(select_opts),
@@ -91,10 +91,9 @@ function Plugin.config()
 		formatting = {
 			format = function(entry, vim_item)
 				vim_item.menu = ({
-					skkeleton = "[skkelton]",
-					nvim_lsp = "",
-					path = "",
-					buffer = "",
+					nvim_lsp = "[LSP]",
+					path = "[PATH]",
+					buffer = "[BUFFER]",
 					luasnip = "[luasnip]",
 				})[entry.source.name]
 				return vim_item

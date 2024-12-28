@@ -14,7 +14,7 @@ vim.keymap.set("n", "<leader>bl", "<cmd>buffer #<cr>", { desc = "Go to last acti
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Change to nomal mode" })
 
 
-vim.keymap.set({ "i", "c" }, [[<C-j>]], [[<Plug>(skkeleton-toggle)]], { noremap = false })
+
 --vim.keymap.set({ "i", "c" }, [[<C-n>]], "<cmd>call pum#map#insert_relative(+1)<CR>")
 --vim.keymap.set({ "i", "c" }, [[<C-p>]], "<cmd>call pum#map#insert_relative(-1)<CR>")
 --vim.keymap.set({ "i", "c" }, [[<C-y>]], "<cmd>call pum#map#confirm()<CR>")

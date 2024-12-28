@@ -28,7 +28,7 @@
 !/.bin/nvimclean.sh
 
 !/.skk
-!/.skk/SKK-JISYO.L
+# !/.skk/SKK-JISYO.L
 
 !/.gitattributes
 

@@ -138,10 +138,10 @@ Plugin.opts = {
 				git = {
 					unstaged = "*",
 					staged = "↑",
-					unmerged = "",
+					unmerged = "?",
 					renamed = "",
 					untracked = "↓",
-					deleted = "",
+					deleted = "-",
 					ignored = ".",
 				},
 			},
@@ -191,8 +191,6 @@ end
 
 Plugin.keys = {
 	{ "<leader>e", "<cmd>NvimTreeToggle<cr>" },
-	{ "<leader>,", "<cmd>NvimTreeFocus<cr>" },
-
 	{ "<leader>z", function()
 		if vim.o.showtabline == 0 then
 			vim.cmd("set showtabline=2")
@@ -203,7 +201,6 @@ Plugin.keys = {
 }
 
 Plugin.config = function()
-	vim.cmd([[highlight NvimTreeRootFolder guifg=#ec6800 gui=bold]])
 	require('nvim-tree').setup(Plugin.opts)
 end
 

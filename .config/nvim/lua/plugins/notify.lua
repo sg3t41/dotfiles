@@ -1,7 +1,7 @@
 local Plugin = { "rcarriga/nvim-notify" }
 
 -- 画面使用時は遅延読込させない
--- Plugin.lazy = vim.fn.argc(-1) == 0
+Plugin.lazy = vim.fn.argc(-1) == 0
 
 Plugin.opts = {
 	render = "wrapped-compact",
@@ -58,4 +58,3 @@ function Plugin.config()
 end
 
 return Plugin
-
