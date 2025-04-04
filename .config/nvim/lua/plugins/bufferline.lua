@@ -1,6 +1,7 @@
 local Plugin = { "akinsho/bufferline.nvim" }
 
-Plugin.event = "VeryLazy"
+-- バッファを開いたときにロード
+Plugin.event = "BufWinEnter"
 
 Plugin.opts = {
 	options = {
@@ -12,28 +13,11 @@ Plugin.opts = {
 
 		indicator = {
 			icon = "",
-			style = "icon",
 		},
 
-		modified_icon = "[+]",
+		modified_icon = "*",
 		left_trunc_marker = "",
 		right_trunc_marker = "",
-
-		offsets = {
-			-- show current branch name
-			{
-				filetype = "NvimTree",
-				text = function()
-					local branch = vim.fn.system("git branch --show-current 2> /dev/null | tr -d '\n'")
-					if branch ~= "" then
-						return "*" .. branch
-					end
-					return "[No branch]"
-				end,
-				highlight = "@markup.heading",
-				separator = true,
-			},
-		},
 	},
 
 	highlights = {
@@ -41,6 +25,7 @@ Plugin.opts = {
 			italic = false,
 		},
 		indicator_selected = {
+			-- 開いているバッファのファイル名の色
 			fg = { attribute = "fg", highlight = "Function" },
 			italic = false,
 		},
@@ -48,9 +33,9 @@ Plugin.opts = {
 }
 
 Plugin.keys = {
-	{ "<leader>bc", "<cmd>BufferLinePickClose<cr>" },
-	{ ">",          "<cmd>BufferLineCycleNext<cr>" },
-	{ "<",          "<cmd>BufferLineCyclePrev<cr>" },
+	{ "<leader>bc", "<cmd>BufferLinePickClose<cr>", { desc = "現在のバッファを閉じる" } },
+	{ ">", "<cmd>BufferLineCycleNext<cr>", { desc = "次のバッファを表示" } },
+	{ "<", "<cmd>BufferLineCyclePrev<cr>", { desc = "前のバッファを表示" } },
 }
 
 return Plugin

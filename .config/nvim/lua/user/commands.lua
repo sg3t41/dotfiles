@@ -11,6 +11,11 @@ vim.api.nvim_create_user_command("TrailspaceTrim", function()
 	vim.api.nvim_win_set_cursor(0, curpos)
 end, { desc = "Delete extra whitespace" })
 
+local cheatsheet_path = "~/.config/nvim/cheatsheet/vim.txt"
+vim.api.nvim_create_user_command("CheatsheetVim", function()
+	vim.cmd("edit " .. cheatsheet_path)
+end, {})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight on yank",
 	group = group,

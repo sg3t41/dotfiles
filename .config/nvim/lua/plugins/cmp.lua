@@ -1,5 +1,4 @@
 local Plugin = { "hrsh7th/nvim-cmp" }
-Plugin.enabled = true
 Plugin.dependencies = {
 	{ "zbirenbaum/copilot.lua" },
 
@@ -14,9 +13,10 @@ Plugin.dependencies = {
 	{ "rafamadriz/friendly-snippets" },
 }
 
+Plugin.lazy = true
 Plugin.event = "InsertEnter"
 
-function Plugin.config()
+Plugin.config = function()
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
 	local types = require("cmp.types")
@@ -34,14 +34,6 @@ function Plugin.config()
 			end,
 		},
 		sources = {
-			{
-				name = 'skkeleton',
-				--				entry_filter = function(entry, ctx)
-				--					local kind = types.lsp.CompletionItemKind[entry:get_kind()]
-				--					if kind == "Text" then return false end
-				--				end,
-				keyword_length = 0
-			},
 			{ name = "path" },
 			{ name = "nvim_lsp" },
 			{ name = "buffer",  keyword_length = 3 },
@@ -62,9 +54,6 @@ function Plugin.config()
 			["<Up>"] = cmp.mapping.select_prev_item(select_opts),
 			["<Down>"] = cmp.mapping.select_next_item(select_opts),
 
-			['<C-f>'] = cmp.mapping.scroll_docs(4), -- 下方向にスクロール
-			['<C-b>'] = cmp.mapping.scroll_docs(-4), -- 上方向にスクロール
-
 			["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
 			["<C-n>"] = cmp.mapping.select_next_item(select_opts),
 
@@ -84,8 +73,6 @@ function Plugin.config()
 			['<CR>'] = cmp.mapping.confirm({
 				select = true,
 			}),
-
-			['Space'] = cmp.mapping.select_prev_item(select_opts),
 		},
 
 		formatting = {

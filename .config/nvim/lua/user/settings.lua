@@ -18,6 +18,7 @@ vim.o.cmdheight = 0
 vim.opt.fillchars = { eob = " " }
 vim.opt.termguicolors = true
 vim.o.shell = "/bin/bash"
+vim.o.hlsearch = true
 
 -- コンテナとホスト間のコピペでOSC52シーケンスを使用するための設定
 --vim.g.clipboard = {
@@ -32,5 +33,5 @@ vim.o.shell = "/bin/bash"
 --	},
 --}
 
-vim.cmd("syntax enable")
-vim.cmd([[autocmd BufEnter * :TSBufEnable highlight]])
+-- vim.cmd("syntax enable")
+-- vim.cmd([[autocmd BufEnter * :TSBufEnable highlight]])
