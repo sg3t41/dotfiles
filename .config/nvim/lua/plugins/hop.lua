@@ -1,8 +1,10 @@
 local Plugin = { "smoka7/hop.nvim" }
 
 Plugin.version = "v2"
+
 Plugin.lazy = true
-function Plugin.config()
+
+Plugin.config = function()
 	require("hop").setup({
 		keys = "etovxqpdygfblzhckisuran",
 	})

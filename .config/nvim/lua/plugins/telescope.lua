@@ -10,12 +10,12 @@ Plugin.lazy = true
 Plugin.cmd = { 'Telescope' }
 
 Plugin.keys = {
-	{ '<leader>?',  '<cmd>Telescope oldfiles<cr>',                  { desc = 'Search file history' } },
-	{ '<leader>fv', '<cmd>Telescope buffers<cr>',                   { desc = 'Search open files' } },
-	{ '<leader>ff', '<cmd>Telescope find_files<cr>',                { desc = 'Search all files' } },
-	{ '<leader>fg', '<cmd>Telescope live_grep<cr>',                 { desc = 'Search in project' } },
-	{ '<leader>fd', '<cmd>Telescope diagnostics<cr>',               { desc = 'Search diagnostics' } },
-	{ '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>', { desc = 'Buffer local search' } }
+	{ '<leader>?', '<cmd>Telescope oldfiles<cr>', { desc = 'ファイル履歴を検索' } },
+	{ '<leader>fv', '<cmd>Telescope buffers<cr>', { desc = '開いているファイルを検索' } },
+	{ '<leader>ff', '<cmd>Telescope find_files<cr>', { desc = '全てのファイルを検索' } },
+	{ '<leader>fg', '<cmd>Telescope live_grep<cr>', { desc = 'プロジェクト内を検索' } },
+	{ '<leader>fd', '<cmd>Telescope diagnostics<cr>', { desc = '診断結果を検索' } },
+	{ '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>', { desc = '現在のバッファ内を検索' } }
 }
 
 function Plugin.config()
@@ -23,3 +23,4 @@ function Plugin.config()
 end
 
 return Plugin
+

@@ -27,7 +27,7 @@ function Plugin.config()
 			type = "#a1a1a1",
 			type_builtin = "#c5c5c5", -- current
 			-- type_builtin = "#8cf8f7", -- glowy blue old (was present by default before type_builtin was introduced added here for people who may like it)
-			search_highlight = "#1bfd9c",
+			search_highlight = "#ee836f",
 			operator = "#1bfd9c",
 			bracket = "#e6e6e6",
 			preprocessor = "#4b8902",
@@ -77,6 +77,14 @@ function Plugin.config()
 	})
 	-- Set colorscheme
 	vim.cmd.colorscheme("darkvoid")
+
+	-- 検索配色
+	-- 検索中
+	vim.api.nvim_set_hl(0, "Search", { fg = "#E73275" })
+	-- 検索条件変更中の現在フォーカス該当文字列
+	vim.api.nvim_set_hl(0, "IncSearch", { bg = "#E73275" })
+	-- カーソル位置の検索結果
+	vim.api.nvim_set_hl(0, "CurSearch", { bg = "#E73275" })
 
 	-- Set individual highlights with styles
 	vim.api.nvim_set_hl(0, "FloatBorder", { italic = true })

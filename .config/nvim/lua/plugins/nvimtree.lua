@@ -190,14 +190,31 @@ function Plugin.init()
 end
 
 Plugin.keys = {
-	{ "<leader>e", "<cmd>NvimTreeToggle<cr>" },
+	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "ファイラの開閉" } },
+
+	-- 現在開いているファイルにフォーカスしてファイラの開閉を行う
+	{ "<leader>f", function()
+		local view = require 'nvim-tree.view'
+
+		if view.is_visible() then
+			-- nvim-treeが開いている場合は閉じる
+			view.close()
+		else
+			-- nvim-treeが閉じている場合は開いて、現在のファイルにフォーカスする
+			vim.cmd(":NvimTreeFindFile")
+		end
+	end,
+		{ desc = "現在開いているファイルの場所でファイラを表示" }
+	},
+
+	-- タブの可視化トグル
 	{ "<leader>z", function()
 		if vim.o.showtabline == 0 then
 			vim.cmd("set showtabline=2")
 		else
 			vim.cmd("set showtabline=0")
 		end
-	end, { silent = true, noremap = true } }
+	end, { silent = true, noremap = true, desc = "タブの可視/不可視" } }
 }
 
 Plugin.config = function()
