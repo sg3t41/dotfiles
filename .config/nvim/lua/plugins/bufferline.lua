@@ -36,6 +36,7 @@ Plugin.keys = {
 	{ "<leader>bc", "<cmd>BufferLinePickClose<cr>", { desc = "現在のバッファを閉じる" } },
 	{ ">", "<cmd>BufferLineCycleNext<cr>", { desc = "次のバッファを表示" } },
 	{ "<", "<cmd>BufferLineCyclePrev<cr>", { desc = "前のバッファを表示" } },
+	{ "<leader>q", "<cmd>BufferLineCloseOthers<cr>", { desc = "現在のバッファ以外を閉じる" } },
 }
 
 return Plugin

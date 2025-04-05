@@ -2,51 +2,13 @@
         Neovim チートシート
 ===============================
 
-# 🌱 基本操作
-:qa        Neovim を終了
-:wq        保存して終了
-:q!        保存せずに終了
-:h <cmd>   コマンドのヘルプ表示
-u          アンドゥ（元に戻す）
-<C-r>      リドゥ（やり直す）
+[NvimTree]
+- 配下のディレクトリを
+E 全展開
+W 全折畳
 
-# 🔍 検索 & 置換
-/word      「word」を検索
-n          次の検索結果へ
-N          前の検索結果へ
-:%s/foo/bar/g  ファイル内の "foo" を "bar" に置換
-
-# 🎨 見た目の調整
-:set number       行番号を表示
-:set relativenumber  相対行番号を表示
-:set hlsearch     検索結果をハイライト
-:set nohlsearch   ハイライトをオフ
-
-# 📝 バッファ & タブ
-:bn   次のバッファへ
-:bp   前のバッファへ
-:bd   バッファを閉じる
-:tabnew   新しいタブを開く
-:tabn     次のタブへ
-:tabp     前のタブへ
-:tabclose タブを閉じる
-
-# 📂 ファイル操作
-:e <filename>    ファイルを開く
-:split <file>    水平分割でファイルを開く
-:vsplit <file>   垂直分割でファイルを開く
-
-# 📜 プラグイン
-## 🔭 Telescope
-<leader>ff      ファイル検索
-<leader>fg      Grep検索
-<leader>fb      バッファ検索
-
-## 🌳 Treesitter
-:TSInstall <lang>  言語をインストール
-:TSUpdate          更新
-
-## 🛠 LSP
-:LspInfo       LSPの情報を表示
-:Format        コードフォーマット
+- コピー
+y ファイル名
+Y 相対パス
+gy 絶対パス
 
