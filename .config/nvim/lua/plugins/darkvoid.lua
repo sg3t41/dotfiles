@@ -19,7 +19,7 @@ function Plugin.config()
 			cursor = "#bdfe58",
 			line_nr = "#404040",
 			visual = "#303030",
-			comment = "#ee836f",
+			comment = "#6fd8ed",
 			string = "#d1d1d1",
 			func = "#e1e1e1",
 			kw = "#f1f1f1",
@@ -91,6 +91,8 @@ function Plugin.config()
 	-- NvimTreeのレイアウト調整
 	vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { italic = true })
 	vim.api.nvim_set_hl(0, "NvimTreeNormalFloat", { italic = true })
+
+	vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#316745' })
 end
 
 return Plugin
