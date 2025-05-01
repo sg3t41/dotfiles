@@ -26,6 +26,7 @@
 !/.bin/install.sh
 !/.bin/dockerprune.sh
 !/.bin/nvimclean.sh
+!/.bin/setdisplay.sh
 
 !/.skk
 # !/.skk/SKK-JISYO.L
