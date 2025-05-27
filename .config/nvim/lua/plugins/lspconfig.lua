@@ -53,7 +53,7 @@ function Plugin.config()
 	require("mason").setup()
 
 	require("mason-lspconfig").setup({
-		ensure_installed = { "lua_ls", "vtsls", "gopls" },
+		ensure_installed = { "lua_ls", "vtsls", "gopls", "jdtls" },
 		handlers = {
 			function(server)
 				lspconfig[server].setup({
@@ -66,7 +66,7 @@ function Plugin.config()
 	null_ls.setup({
 		sources = {
 			null_ls.builtins.formatting.prettier.with({
-				extra_filetypes = { "typesctipt", "javascript", "css", "html" },
+				extra_filetypes = { "typesctipt", "javascript", "css", "html", "java" },
 			}),
 
 			require("plugins.lsp.lua_ls").setup({})
