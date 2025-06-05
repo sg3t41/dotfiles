@@ -1,5 +1,6 @@
 local Plugin = { 'aliqyan-21/darkvoid.nvim' }
-Plugin.lazy = false
+Plugin.lazy = true
+Plugin.event = "VeryLazy"
 
 Plugin.opts = {
 	colors = {

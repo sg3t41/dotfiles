@@ -1,7 +1,7 @@
 local Plugin = { "akinsho/bufferline.nvim" }
 
 -- バッファを開いたときにロード
-Plugin.event = "BufWinEnter"
+Plugin.event = "VeryLazy"
 
 Plugin.opts = {
 	options = {

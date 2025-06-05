@@ -1,4 +1,5 @@
 local Plugin = { "mfussenegger/nvim-dap" }
+Plugin.enabled = false  -- 一時的に無効化（デバッグ使わないなら）
 
 Plugin.ft = { "go" }
 

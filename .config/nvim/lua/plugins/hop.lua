@@ -1,4 +1,5 @@
 local Plugin = { "smoka7/hop.nvim" }
+Plugin.enabled = false  -- LSPのgoto機能で十分
 
 Plugin.version = "v2"
 
