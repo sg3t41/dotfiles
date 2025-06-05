@@ -11,8 +11,8 @@ Plugin.config = function()
 end
 
 Plugin.keys = {
-	{ "<leader><leader>", "<cmd>HopWord<cr>" },
-	{ "<leader>h",        "<cmd>HopWord<cr>" },
+	-- { "<leader><leader>", "<cmd>HopWord<cr>" },
+	{ "<leader>j", "<cmd>HopWord<cr>" },
 }
 
 return Plugin
