@@ -138,3 +138,17 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH=$PATH:$HOME/.local/kitty.app/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
+
+#java
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk-amd64/"
+export PATH="$PATH:$JAVA_HOME/bin"
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+alias claude="/home/sg3t41/.claude/local/claude"
+
+# SSH鍵の自動読み込み
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/github_id 2>/dev/null
