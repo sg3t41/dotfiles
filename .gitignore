@@ -27,6 +27,7 @@
 !/.bin/dockerprune.sh
 !/.bin/nvimclean.sh
 !/.bin/setdisplay.sh
+!/.bin/claude-cleaner.sh
 
 !/.skk
 # !/.skk/SKK-JISYO.L
