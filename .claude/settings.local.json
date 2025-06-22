@@ -24,7 +24,8 @@
       "Bash(bash:*)",
       "Bash(source:*)",
       "Bash(tree:*)",
-      "Bash(git branch:*)"
+      "Bash(git branch:*)",
+      "Bash(git tag:*)"
     ],
     "deny": [
       "Bash(sudo:*)",
