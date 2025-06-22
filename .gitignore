@@ -16,11 +16,8 @@
 !/.config/starship.toml
 !/.config/git
 !/.config/git/**
-
-!/.bash_aliases
-!/.bash_aliases/.linux_command
-!/.bash_boot_scripts
-!/.bash_boot_scripts/welcome.sh
+!/.config/bash
+!/.config/bash/**
 
 !/.bin
 !/.bin/install.sh
@@ -29,10 +26,17 @@
 !/.bin/setdisplay.sh
 !/.bin/claude-cleaner.sh
 
+!/.claude
+!/.claude/claude.md
+!/.claude/settings.local.json
+
 !/.skk
 # !/.skk/SKK-JISYO.L
 
 !/.gitattributes
 
 !/.ssh
-!/.ssh/**
+!/.ssh/config
+
+.claude/.credentials.json
+.claude/projects/

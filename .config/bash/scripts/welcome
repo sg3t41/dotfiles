@@ -1,0 +1,6 @@
+# ターミナル起動時のウェルカムメッセージ
+# echo "Welcome $(whoami)!"
+
+# システム情報表示（オプション）
+# echo "System: $(uname -s) $(uname -r)"
+# echo "Date: $(date)"

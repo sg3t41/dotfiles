@@ -1,0 +1,6 @@
+# SSH エージェント管理
+# 注意: SSH設定で 'AddKeysToAgent yes' が設定されているため、
+# 通常は手動でssh-addする必要はありません
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)" > /dev/null
+fi

@@ -1,0 +1,3 @@
+# Node.js/Deno設定
+export DENO_INSTALL="$HOME/.deno"
+add_to_path "$DENO_INSTALL/bin"
