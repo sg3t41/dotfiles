@@ -1,0 +1,16 @@
+# 基本的なエイリアス
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# 安全性向上
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# ディレクトリ移動
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias c='clear'

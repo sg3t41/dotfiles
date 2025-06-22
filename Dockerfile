@@ -1,7 +1,6 @@
 FROM ubuntu:24.04
 
 RUN apt update && \
-	apt-get update && \
 	apt install -y \
 	curl \
 	git \
@@ -13,14 +12,10 @@ RUN apt update && \
 	build-essential \
 	tmux \
 	locales \
-	nodejs \
 	cargo \
 	cmake \
 	libssl-dev \
-	ripgrep \
 	xsel \
-	postgresql \
-	postgresql-client \
 	golang \
 	figlet
 
@@ -34,9 +29,9 @@ RUN wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64
 	rm -rf nvim-linux64 && \
 	rm nvim-linux64.tar.gz
 
-# nodejs
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
-RUN apt install -y nodejs
+# nodejs (LTS version)
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
+	apt install -y nodejs
 
 # deno
 RUN curl -fsSL https://deno.land/x/install/install.sh | sh

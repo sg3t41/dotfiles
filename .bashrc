@@ -1,48 +1,43 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# ~/.bashrc: bash(1)によりnon-loginシェル用に実行される
+# 例については /usr/share/doc/bash/examples/startup-files (bash-docパッケージ内)
+# を参照してください
 
-# If not running interactively, don't do anything
+# 対話的でない場合は何もしない
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
+# 履歴に重複行を追加しない。詳細は bash(1) を参照
+# ... または ignoredups と ignorespace を強制
 HISTCONTROL=ignoredups:ignorespace
 
-# append to the history file, don't overwrite it
+# 履歴ファイルに追記する（上書きしない）
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# 履歴の長さ設定は bash(1) の HISTSIZE と HISTFILESIZE を参照
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# 各コマンド後にウィンドウサイズをチェックし、必要に応じて
+# LINES と COLUMNS の値を更新する
 shopt -s checkwinsize
 
-# make less more friendly for non-text input files, see lesspipe(1)
+# less をテキスト以外の入力ファイルに対してより親切にする。lesspipe(1)を参照
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
+# 作業中のchroot環境を識別する変数を設定（下記のプロンプトで使用）
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
+# カラープロンプトを設定（色が「欲しい」ことが分かっている場合以外は非カラー）
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
+	# カラーサポートあり。Ecma-48準拠と仮定
+	# (ISO/IEC-6429)。このサポートがない場合は極めて稀で、
+	# そのような場合は setaf ではなく setf をサポートする傾向がある
 	color_prompt=yes
     else
 	color_prompt=
@@ -56,7 +51,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
+# xtermの場合、タイトルを user@host:dir に設定
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
@@ -65,7 +60,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
+# ls のカラーサポートを有効にし、便利なエイリアスを追加
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -77,78 +72,58 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Scripts definitions when boot terminal
-# You may want to run the script when boot terminal,
-# put all your scripts into a separate file like ~/.bash_boot_scripts,
-# instead of adding them here directly.
-
-if [ -d ~/.bash_boot_scripts ]; then
-    for filename in `ls -a ~/.bash_boot_scripts`; do
-        if [ $filename != "." ] && [ $filename != ".." ]; then
-            sh ~/.bash_boot_scripts/$filename
+# ターミナル起動時のスクリプト読み込み
+if [ -d ~/.config/bash/scripts ]; then
+    for script in ~/.config/bash/scripts/*; do
+        if [ -f "$script" ]; then
+            . "$script"
         fi
     done
 fi
 
-# Alias definitions.
-# You may want to put all your additional aliases into a separate file
-# like ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -d ~/.bash_aliases ]; then
-    for filename in `ls -a ~/.bash_aliases`; do
-        if [ $filename != "." ] && [ $filename != ".." ]; then
-            . ~/.bash_aliases/$filename
+# エイリアス定義の読み込み
+if [ -d ~/.config/bash/aliases ]; then
+    for alias_file in ~/.config/bash/aliases/*; do
+        if [ -f "$alias_file" ]; then
+            . "$alias_file"
         fi
     done
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-#    . /etc/bash_completion
-#fi
+# PATH重複防止関数（同じパスを何度も追加しないようにする）
+add_to_path() {
+    if [[ ":$PATH:" != *":$1:"* ]]; then
+        export PATH="$PATH:$1"
+    fi
+}
 
-# Software configurations.
-# You may want to put all your additional software configrations
-# into a separate file like ~/.software_configurations,
-# instead of adding them here directly.
-
-if [ -d ~/.software_configurations ]; then
-    for filename in `ls -a ~/.software_configurations`; do
-        if [ $filename != "." ] && [ $filename != ".." ]; then
-            . ~/.software_configurations/$filename
+# シェル設定の読み込み（環境変数、PATH等）
+if [ -d ~/.config/bash/shell ]; then
+    for shell_config in ~/.config/bash/shell/*; do
+        if [ -f "$shell_config" ]; then
+            . "$shell_config"
         fi
     done
 fi
 
-# Supports Japanese
-export LANG=ja_JP.UTF-8
+# システムサービス設定の読み込み（SSH等）
+if [ -d ~/.config/bash/system ]; then
+    for system in ~/.config/bash/system/*; do
+        if [ -f "$system" ]; then
+            . "$system"
+        fi
+    done
+fi
 
-PS1='\e[32m\u@\h\e[37m:\e[36m \w\n\e[0m\$ '
+# ソフトウェア設定の読み込み
+if [ -d ~/.config/bash/software ]; then
+    for software in ~/.config/bash/software/*; do
+        if [ -f "$software" ]; then
+            . "$software"
+        fi
+    done
+fi
 
-export PATH="$PATH:$HOME/.cargo/bin"
+# starship使用時はカスタムPS1を無効化
+# PS1='\e[32m\u@\h\e[37m:\e[36m \w\n\e[0m\$ '
 
-#starship
-eval "$(starship init bash)"
-
-export DENO_INSTALL="/$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH=$PATH:$HOME/.local/kitty.app/bin
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-
-#java
-export JAVA_HOME="/usr/lib/jvm/java-21-openjdk-amd64/"
-export PATH="$PATH:$JAVA_HOME/bin"
-
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-alias claude="/home/sg3t41/.claude/local/claude"
-
-# SSH鍵の自動読み込み
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/github_id 2>/dev/null
