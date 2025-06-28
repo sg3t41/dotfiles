@@ -24,10 +24,10 @@
 !/.config/bash/**
 
 !/.bin
-!/.bin/install.sh
-!/.bin/dockerprune.sh
-!/.bin/nvimclean.sh
-!/.bin/setdisplay.sh
+!/.bin/dotfiles-installer.sh
+!/.bin/docker-cleaner.sh
+!/.bin/nvim-cleaner.sh
+!/.bin/set-display.sh
 !/.bin/claude-cleaner.sh
 !/.bin/ssh-setup.sh
 
