@@ -124,4 +124,3 @@ if [ -d ~/.config/bash/software ]; then
     done
 fi
 
-alias claude="/home/sg3t41/.config/claude/local/claude"
