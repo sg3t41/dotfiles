@@ -10,7 +10,10 @@
 
 !/.config
 !/.config/nvim
-!/.config/nvim/**
+!/.config/nvim/init.lua
+!/.config/nvim/lua
+!/.config/nvim/lua/**
+!/.config/nvim/lazy-lock.json
 !/.config/kitty
 !/.config/kitty/kitty.conf
 !/.config/starship.toml
