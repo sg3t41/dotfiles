@@ -21,7 +21,23 @@
 !/.config/git
 !/.config/git/ignore
 !/.config/bash
-!/.config/bash/**
+!/.config/bash/aliases
+!/.config/bash/aliases/claude
+!/.config/bash/aliases/common
+!/.config/bash/aliases/nvim
+!/.config/bash/scripts
+!/.config/bash/scripts/welcome
+!/.config/bash/shell
+!/.config/bash/shell/env
+!/.config/bash/shell/paths
+!/.config/bash/software
+!/.config/bash/software/go
+!/.config/bash/software/java
+!/.config/bash/software/node
+!/.config/bash/software/rust
+!/.config/bash/software/starship
+!/.config/bash/system
+!/.config/bash/system/ssh
 
 !/.bin
 !/.bin/dotfiles-installer.sh
