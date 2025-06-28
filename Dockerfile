@@ -16,8 +16,7 @@ RUN apt update && \
 	cmake \
 	libssl-dev \
 	xsel \
-	golang \
-	figlet
+	golang
 
 RUN locale-gen ja_JP.UTF-8
 

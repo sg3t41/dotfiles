@@ -14,6 +14,11 @@ function keymaps.setup()
         vim.cmd(":NvimTreeFindFile")
       end
     end, desc = "現在開いているファイルの場所でファイラを表示" },
+    
+    { "gi", function()
+      local api = require('nvim-tree.api')
+      api.tree.toggle_gitignore_filter()
+    end, desc = "git無視ファイルの表示切り替え", mode = "n", buffer = 0 },
   }
 end
 
