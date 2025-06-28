@@ -1,4 +1,4 @@
- ~/.bashrc: bash(1)によりnon-loginシェル用に実行される
+# ~/.bashrc: bash(1)によりnon-loginシェル用に実行される
 # 例については /usr/share/doc/bash/examples/startup-files (bash-docパッケージ内)
 # を参照してください
 
@@ -123,8 +123,5 @@ if [ -d ~/.config/bash/software ]; then
         fi
     done
 fi
-
-# starship使用時はカスタムPS1を無効化
-# PS1='\e[32m\u@\h\e[37m:\e[36m \w\n\e[0m\$ '
 
 alias claude="/home/sg3t41/.config/claude/local/claude"

@@ -26,17 +26,7 @@
 !/.bin/setdisplay.sh
 !/.bin/claude-cleaner.sh
 
-!/.claude
-!/.claude/claude.md
-# !/.claude/settings.local.json
-
-!/.skk
-# !/.skk/SKK-JISYO.L
-
 !/.gitattributes
 
 !/.ssh
 !/.ssh/config
-
-.claude/.credentials.json
-.claude/projects/
