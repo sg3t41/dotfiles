@@ -1,17 +1,19 @@
 # Dotfiles
 
 ## Install
+
 ```bash
 git clone https://github.com/sg3t41/dotfiles dotfiles
+cd dotfiles
 ```
+
 ## SetUp
 
-### Local
 ```bash
-bash dotfiles/.bin/install.sh
-```
-
-### Docker
-```bash
-docker run -it $(docker build -q dotfiles)
+make local        # ローカルインストール
+make docker       # Docker build + run
+make docker-build # Docker build のみ
+make docker-run   # Docker run (build 含む)
+make clean        # Docker イメージ削除
+make help         # ヘルプ表示
 ```
