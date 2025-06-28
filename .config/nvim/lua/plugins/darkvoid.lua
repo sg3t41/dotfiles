@@ -50,7 +50,7 @@ function Plugin.config()
 			},
 
 			-- gitsigns colors
-			added = "#baffc9",
+			added = "#000000",
 			changed = "#ffffba",
 			removed = "#ffb3ba",
 

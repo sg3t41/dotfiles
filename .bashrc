@@ -124,6 +124,3 @@ if [ -d ~/.config/bash/software ]; then
     done
 fi
 
-# starship使用時はカスタムPS1を無効化
-# PS1='\e[32m\u@\h\e[37m:\e[36m \w\n\e[0m\$ '
-
