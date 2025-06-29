@@ -44,6 +44,10 @@ RUN curl -fsSL https://deno.land/x/install/install.sh | sh
 #starship
 RUN curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
+# fzf
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git /root/.fzf && \
+	/root/.fzf/install --all
+
 COPY . /dotfiles
 
 RUN bash dotfiles/.bin/dotfiles-installer.sh

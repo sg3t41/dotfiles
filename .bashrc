@@ -124,3 +124,5 @@ if [ -d ~/.config/bash/software ]; then
     done
 fi
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

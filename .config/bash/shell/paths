@@ -2,3 +2,4 @@
 add_to_path "$HOME/.local/kitty.app/bin"
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/dotfiles/.bin"
+add_to_path "$HOME/.fzf/bin"
