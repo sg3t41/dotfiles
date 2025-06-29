@@ -14,3 +14,13 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias c='clear'
+
+# ripgrep エイリアス
+alias rg='rg --smart-case --hidden'
+alias rgi='rg --ignore-case'
+alias rgf='rg --files'
+alias rgtodo='rg "TODO|FIXME|XXX|HACK" --ignore-case'
+alias rgjs='rg --type js'
+alias rgts='rg --type ts'
+alias rgpy='rg --type py'
+alias rggo='rg --type go'
