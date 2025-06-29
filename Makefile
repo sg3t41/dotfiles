@@ -12,7 +12,7 @@ help:
 	@echo "  clean        - Dockerイメージを削除"
 
 local:
-	@bash .bin/install.sh
+	@bash .bin/dotfiles-installer.sh
 
 docker-build:
 	docker build -t dotfiles .
