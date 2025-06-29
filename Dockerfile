@@ -4,6 +4,7 @@ RUN apt update && \
 	apt install -y \
 	curl \
 	git \
+	git-delta \
 	ripgrep \
 	tar \
 	unzip \
