@@ -45,7 +45,7 @@ RUN curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 COPY . /dotfiles
 
-RUN bash dotfiles/.bin/install.sh
+RUN bash dotfiles/.bin/dotfiles-installer.sh
 
 RUN nvim --headless :Lazy! +qa
 
