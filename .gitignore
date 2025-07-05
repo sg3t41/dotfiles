@@ -56,3 +56,5 @@
 !/.gitsecret/**
 
 !local.env.secret
+.gitsecret/keys/random_seed
+!*.secret
