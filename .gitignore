@@ -60,8 +60,12 @@
 !/.ssh/github.pub.secret
 !/.ssh/known_hosts.secret
 
-!/.gemini/
+!/.gemini
 !/.gemini/settings.json
+
+!/.claude
+!/.claude/settings.json
+!/.claude/claude.md
 
 !/.gitsecret
 !/.gitsecret/keys
