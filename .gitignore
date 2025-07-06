@@ -63,7 +63,10 @@
 !/.gemini/
 !/.gemini/settings.json
 
-
 !/.gitsecret
+!/.gitsecret/keys
+!/.gitsecret/keys/**
 !/.gitsecret/paths
-!/.gitsecret/paths/mapping.cfg
+!/.gitsecret/paths/**
+# random_seedのみgit管理対象外
+.gitsecret/keys/random_seed
