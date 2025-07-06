@@ -1,4 +1,5 @@
 *
+.**
 !*/
 
 !/.gitignore
@@ -30,13 +31,12 @@
 !/git/.config/git/
 !/git/.config/git/ignore
 
-!/gitsecret/
-!/gitsecret/.gitsecret/
-!/gitsecret/.gitsecret/keys
-!/gitsecret/.gitsecret/keys/pubring.kbx
-!/gitsecret/.gitsecret/keys/trustdb.gpg
-!/gitsecret/.gitsecret/paths/
-!/gitsecret/.gitsecret/paths/mapping.cfg
+!/.gitsecret/
+!/.gitsecret/keys
+!/.gitsecret/keys/pubring.kbx
+!/.gitsecret/keys/trustdb.gpg
+!/.gitsecret/paths/
+!/.gitsecret/paths/mapping.cfg
 
 !/kitty/
 !/kitty/.config/

@@ -15,7 +15,7 @@ help:
 
 local: secret-reveal
 	@echo "dotfilesをローカルにインストールします..."
-	@bash .bin/dotfiles-installer.sh
+	@bash bin/.bin/dotfiles-installer.sh
 
 secret-reveal:
 	@echo "秘密ファイルを復元します..."

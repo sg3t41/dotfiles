@@ -10,29 +10,37 @@ helpmsg() {
   command echo ""
 }
 
-link_to_homedir() {
-  command echo "backup old dotfiles..."
-  if [ ! -d "$HOME/.gdotbackup" ];then
-    command echo "$HOME/.gdotbackup not found. Auto Make it"
-    command mkdir "$HOME/.gdotbackup"
-  fi
+install_dotfiles_with_stow() {
+  command echo "Installing dotfiles with stow..."
 
-  local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-  local dotdir=$(dirname ${script_dir})
-  if [[ "$HOME" != "$dotdir" ]];then
-    for f in $dotdir/.??*; do
-      [[ `basename $f` == ".git" || `basename $f` == ".gitsecret" ]] && continue
-      if [[ -L "$HOME/`basename $f`" ]];then
-        command rm -f "$HOME/`basename $f`"
-      fi
-      if [[ -e "$HOME/`basename $f`" ]];then
-        command mv "$HOME/`basename $f`" "$HOME/.gdotbackup"
-      fi
-      command ln -snf $f $HOME
-    done
-  else
-    command echo "same install src dest"
-  fi
+  local dotfiles_root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+  
+  # stowを実行するディレクトリに移動
+  pushd "${dotfiles_root_dir}/../.." > /dev/null
+
+  # stowで管理するパッケージのリスト
+  local packages=(
+    "bash"
+    "bin"
+    "claude"
+    "gemini"
+    "git"
+    "kitty"
+    "nvim"
+    "ssh"
+    "starship"
+    "tmux"
+  )
+
+  for pkg in "${packages[@]}"; do
+    command echo "Processing package: ${pkg}"
+    # 既存のリンクを削除 (クリーンな状態にするため)
+    stow -D "${pkg}" || true
+    # 新しいリンクを作成
+    stow "${pkg}"
+  done
+
+  popd > /dev/null # 元のディレクトリに戻る
 }
 
 
@@ -61,11 +69,10 @@ while [ $# -gt 0 ];do
 done
 
 if [[ "$IS_INSTALL" = true ]];then
-  link_to_homedir
+  install_dotfiles_with_stow
   command echo ""
   command echo "#####################################################"
   command echo -e "\e[1;36m $(basename $0) install success!!! \e[m"
   command echo "#####################################################"
   command echo ""
 fi
-
