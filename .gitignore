@@ -65,4 +65,5 @@
 
 
 !/.gitsecret
-!/.gitsecret/**
+!/.gitsecret/paths
+!/.gitsecret/paths/mapping.cfg
