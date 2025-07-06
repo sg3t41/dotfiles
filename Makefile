@@ -1,4 +1,4 @@
-.PHONY: all local docker-build docker-run docker clean help secret-reveal secret-hide
+.PHONY: all local secret-reveal secret-hide
 
 all: local
 
