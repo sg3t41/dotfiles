@@ -22,13 +22,11 @@
 !/.config/git/ignore
 !/.config/bash
 !/.config/bash/aliases
-!/.config/bash/aliases/claude
 !/.config/bash/aliases/common
 !/.config/bash/aliases/nvim
 !/.config/bash/scripts
 !/.config/bash/scripts/welcome
 !/.config/bash/shell
-!/.config/bash/shell/env
 !/.config/bash/shell/paths
 !/.config/bash/software
 !/.config/bash/software/go
@@ -38,6 +36,12 @@
 !/.config/bash/software/starship
 !/.config/bash/system
 !/.config/bash/system/ssh
+
+!/.config/bash/shell/env
+!/.config/bash/shell/env/env
+!/.config/bash/shell/env/common.env
+!/.config/bash/shell/env/local.env.secret
+
 
 !/.bin
 !/.bin/dotfiles-installer.sh

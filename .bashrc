@@ -124,7 +124,8 @@ if [ -d ~/.config/bash/software ]; then
     done
 fi
 
-# Load secrets if they exist
-if [ -f "$HOME/dotfiles/local.env" ]; then
-    source "$HOME/dotfiles/local.env"
+ # Load secrets if they exist
+if [ -f "$HOME/.config/bash/shell/env/env" ]; then
+		source "$HOME/.config/bash/shell/env/env"
 fi
+
