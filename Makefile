@@ -26,15 +26,3 @@ secret-reveal:
 secret-hide:
 	@echo "秘密ファイルを隠蔽します..."
 	@git secret hide
-
-docker-build:
-	docker build -t dotfiles .
-
-docker-run: docker-build
-	docker run -it --rm dotfiles
-
-docker: docker-run
-
-clean:
-	docker rmi dotfiles 2>/dev/null || true
-	docker system prune -f
