@@ -55,10 +55,10 @@
 
 !/.ssh
 !/.ssh/config
+!/.ssh/github.secret
+!/.ssh/github.pub.secret
+!/.ssh/known_hosts.secret
+
 
 !/.gitsecret
 !/.gitsecret/**
-
-!local.env.secret
-.gitsecret/keys/random_seed
-!*.secret
