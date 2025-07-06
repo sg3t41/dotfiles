@@ -60,6 +60,9 @@
 !/.ssh/github.pub.secret
 !/.ssh/known_hosts.secret
 
+!/.gemini/
+!/.gemini/settings.json
+
 
 !/.gitsecret
 !/.gitsecret/**
