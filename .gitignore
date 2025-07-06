@@ -11,7 +11,20 @@
 !/bash/.bashrc
 !/bash/.bash_profile
 !/bash/.config/bash
-!/bash/.config/bash/**
+!/bash/.config/bash/aliases
+!/bash/.config/bash/aliases/**
+!/bash/.config/bash/scripts
+!/bash/.config/bash/scripts/**
+!/bash/.config/bash/shell
+!/bash/.config/bash/shell/paths
+!/bash/.config/bash/shell/env
+!/bash/.config/bash/shell/env/env
+!/bash/.config/bash/shell/env/common.env
+!/bash/.config/bash/shell/env/local.env.secret
+!/bash/.config/bash/software
+!/bash/.config/bash/software/**
+!/bash/.config/bash/system
+!/bash/.config/bash/system/**
 
 !/bin/
 !/bin/.bin/
@@ -61,3 +74,6 @@
 
 !/tmux/
 !/tmux/.tmux.conf
+.gitsecret/keys/random_seed
+!*.secret
+bash/.config/bash/shell/env/local.env
