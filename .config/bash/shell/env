@@ -1,6 +1,0 @@
-export LANG=ja_JP.UTF-8
-
-# gitsecretで管理されるlocal.envが存在すれば読み込む
-if [ -f "${HOME}/dotfiles/.env" ]; then
-  . "${HOME}/dotfiles/.env"
-fi
