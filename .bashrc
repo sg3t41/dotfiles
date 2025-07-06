@@ -45,7 +45,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -62,7 +62,7 @@ esac
 
 # ls のカラーサポートを有効にし、便利なエイリアスを追加
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r "$HOME/.dircolors" && eval "$(dircolors -b "$HOME/.dircolors")" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -73,8 +73,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # ターミナル起動時のスクリプト読み込み
-if [ -d ~/.config/bash/scripts ]; then
-    for script in ~/.config/bash/scripts/*; do
+if [ -d "$HOME/.config/bash/scripts" ]; then
+    for script in "$HOME/.config/bash/scripts"/*; do
         if [ -f "$script" ]; then
             . "$script"
         fi
@@ -82,8 +82,8 @@ if [ -d ~/.config/bash/scripts ]; then
 fi
 
 # エイリアス定義の読み込み
-if [ -d ~/.config/bash/aliases ]; then
-    for alias_file in ~/.config/bash/aliases/*; do
+if [ -d "$HOME/.config/bash/aliases" ]; then
+    for alias_file in "$HOME/.config/bash/aliases"/*; do
         if [ -f "$alias_file" ]; then
             . "$alias_file"
         fi
@@ -98,17 +98,23 @@ add_to_path() {
 }
 
 # シェル設定の読み込み（環境変数、PATH等）
-if [ -d ~/.config/bash/shell ]; then
-    for shell_config in ~/.config/bash/shell/*; do
+if [ -d "$HOME/.config/bash/shell" ]; then
+    # shell ディレクトリ直下のファイルを読み込む
+    for shell_config in "$HOME/.config/bash/shell"/*; do
         if [ -f "$shell_config" ]; then
             . "$shell_config"
         fi
     done
+
+    # env/env ファイルを明示的に読み込む
+    if [ -f "$HOME/.config/bash/shell/env/env" ]; then
+        source "$HOME/.config/bash/shell/env/env"
+    fi
 fi
 
 # システムサービス設定の読み込み（SSH等）
-if [ -d ~/.config/bash/system ]; then
-    for system in ~/.config/bash/system/*; do
+if [ -d "$HOME/.config/bash/system" ]; then
+    for system in "$HOME/.config/bash/system"/*; do
         if [ -f "$system" ]; then
             . "$system"
         fi
@@ -116,11 +122,10 @@ if [ -d ~/.config/bash/system ]; then
 fi
 
 # ソフトウェア設定の読み込み
-if [ -d ~/.config/bash/software ]; then
-    for software in ~/.config/bash/software/*; do
+if [ -d "$HOME/.config/bash/software" ]; then
+    for software in "$HOME/.config/bash/software"/*; do
         if [ -f "$software" ]; then
             . "$software"
         fi
     done
 fi
-

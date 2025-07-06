@@ -1,0 +1,6 @@
+# ~/.config/bash/shell/env/ ディレクトリ内の .env で終わるファイルをすべて読み込む
+for env in ~/.config/bash/shell/env/*.env; do
+    if [ -f "$env" ]; then
+        source "$env"
+    fi
+done
