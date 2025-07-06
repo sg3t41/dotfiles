@@ -6,9 +6,11 @@
         "COINCHECK_API_KEY": "${COINCHECK_API_KEY}",
         "COINCHECK_API_SECRET": "${COINCHECK_API_SECRET}"
       },
-      "args": ["${COINCHECK_MCP_SERVER_PATH}"]
+      "args": [
+        "${COINCHECK_MCP_SERVER_PATH}"
+      ]
     }
   },
-  "selectedAuthType": "gemini-api-key",
+  "selectedAuthType": "oauth-personal",
   "theme": "Default"
 }

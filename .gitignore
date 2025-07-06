@@ -1,77 +1,63 @@
-/*
-/.**
+*
+!*/
 
-!/.bashrc
-!/.bash_profile
-!/.tmux.conf
 !/.gitignore
-!/Dockerfile
 !/README.md
 !/Makefile
 
-!/.config
-!/.config/nvim
-!/.config/nvim/init.lua
-!/.config/nvim/lua
-!/.config/nvim/lua/**
-!/.config/nvim/lazy-lock.json
-!/.config/kitty
-!/.config/kitty/kitty.conf
-!/.config/starship.toml
-!/.config/git
-!/.config/git/ignore
-!/.config/bash
-!/.config/bash/aliases
-!/.config/bash/aliases/common
-!/.config/bash/aliases/nvim
-!/.config/bash/scripts
-!/.config/bash/scripts/welcome
-!/.config/bash/shell
-!/.config/bash/shell/paths
-!/.config/bash/software
-!/.config/bash/software/go
-!/.config/bash/software/java
-!/.config/bash/software/node
-!/.config/bash/software/rust
-!/.config/bash/software/starship
-# !/.config/bash/software/gcloud
-!/.config/bash/system
-!/.config/bash/system/ssh
+!/bash/
+!/bash/.config/
+!/bash/.bashrc
+!/bash/.bash_profile
+!/bash/.config/bash
+!/bash/.config/bash/**
 
-!/.config/bash/shell/env
-!/.config/bash/shell/env/env
-!/.config/bash/shell/env/common.env
-!/.config/bash/shell/env/local.env.secret
+!/bin/
+!/bin/.bin/
+!/bin/.bin/**
 
+!/claude/
+!/claude/.claude/
+!/claude/.claude/claude.md
+!/claude/.claude/settings.json
 
-!/.bin
-!/.bin/dotfiles-installer.sh
-!/.bin/docker-cleaner.sh
-!/.bin/nvim-cleaner.sh
-!/.bin/set-display.sh
-!/.bin/claude-cleaner.sh
-!/.bin/ssh-setup.sh
+!/gemini/
+!/gemini/.gemini/
+!/gemini/.gemini/settings.json
 
-!/.gitattributes
+!/git/
+!/git/.config/
+!/git/.config/git/
+!/git/.config/git/ignore
 
-!/.ssh
-!/.ssh/config
-!/.ssh/github.secret
-!/.ssh/github.pub.secret
-!/.ssh/known_hosts.secret
+!/gitsecret/
+!/gitsecret/.gitsecret/
+!/gitsecret/.gitsecret/keys
+!/gitsecret/.gitsecret/keys/pubring.kbx
+!/gitsecret/.gitsecret/keys/trustdb.gpg
+!/gitsecret/.gitsecret/paths/
+!/gitsecret/.gitsecret/paths/mapping.cfg
 
-!/.gemini
-!/.gemini/settings.json
+!/kitty/
+!/kitty/.config/
+!/kitty/.config/kitty/
+!/kitty/.config/kitty/kitty.conf
 
-!/.claude
-!/.claude/settings.json
-!/.claude/claude.md
+!/nvim/
+!/nvim/.config/
+!/nvim/.config/nvim/**
 
-!/.gitsecret
-!/.gitsecret/keys
-!/.gitsecret/keys/pubring.kbx
-!/.gitsecret/keys/trustdb.gpg
+!/ssh/
+!/ssh/.ssh/
+!/ssh/.ssh/config/
+!/ssh/.ssh/github.pub.secret
+!/ssh/.ssh/github.secret
+!/ssh/.ssh/github.secret
+!/ssh/.ssh/known_hosts.secret
 
-!/.gitsecret/paths
-!/.gitsecret/paths/mapping.cfg
+!/starship/
+!/starship/.config/
+!/starship/.config/starship.toml
 
+!/tmux/
+!/tmux/.tmux.conf
