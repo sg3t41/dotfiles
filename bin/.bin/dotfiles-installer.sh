@@ -12,12 +12,9 @@ helpmsg() {
 
 install_dotfiles_with_stow() {
   command echo "Installing dotfiles with stow..."
-
   local dotfiles_root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+  local home_dir="${HOME}"
   
-  # stowを実行するディレクトリに移動
-  pushd "${dotfiles_root_dir}/../.." > /dev/null
-
   # stowで管理するパッケージのリスト
   local packages=(
     "bash"
@@ -31,18 +28,14 @@ install_dotfiles_with_stow() {
     "starship"
     "tmux"
   )
-
+  
   for pkg in "${packages[@]}"; do
     command echo "Processing package: ${pkg}"
-    # 既存のリンクを削除 (クリーンな状態にするため)
-    stow -D "${pkg}" || true
-    # 新しいリンクを作成
-    stow "${pkg}"
+    # 絶対パスを使用してstowを実行
+    stow -d "${dotfiles_root_dir}/../.." -t "${home_dir}" -D "${pkg}" 2>/dev/null || true
+    stow -d "${dotfiles_root_dir}/../.." -t "${home_dir}" "${pkg}" 2>/dev/null || true
   done
-
-  popd > /dev/null # 元のディレクトリに戻る
 }
-
 
 #--------------------------------------------------------------#
 ##          Main                                              ##
