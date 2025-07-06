@@ -20,6 +20,8 @@ local: secret-reveal
 secret-reveal:
 	@echo "秘密ファイルを復元します..."
 	@git secret reveal
+	@echo "SSH秘密鍵のパーミッションを修正します..."
+	@if [ -f ~/.ssh/github ]; then chmod 0600 ~/.ssh/github; fi
 
 secret-hide:
 	@echo "秘密ファイルを隠蔽します..."
