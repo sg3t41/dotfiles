@@ -10,10 +10,8 @@ cd dotfiles
 ## SetUp
 
 ```bash
-make local        # ローカルインストール
-make docker       # Docker build + run
-make docker-build # Docker build のみ
-make docker-run   # Docker run (build 含む)
-make clean        # Docker イメージ削除
-make help         # ヘルプ表示
+make local         # ローカルインストール
+make docker        # Docker起動(build含む)
+make secret-hide   # 機密情報の暗号化
+make secret-reveal # 機密情報の復号
 ```
