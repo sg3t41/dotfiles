@@ -62,11 +62,9 @@
 
 !/ssh/
 !/ssh/.ssh/
-!/ssh/.ssh/config/
-!/ssh/.ssh/github.pub.secret
+!/ssh/.ssh/config
+!/ssh/.ssh/github.pub
 !/ssh/.ssh/github.secret
-!/ssh/.ssh/github.secret
-!/ssh/.ssh/known_hosts.secret
 
 !/starship/
 !/starship/.config/
