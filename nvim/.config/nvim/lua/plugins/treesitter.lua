@@ -1,5 +1,4 @@
 local Plugin = { "nvim-treesitter/nvim-treesitter" }
-Plugin.enabled = false -- 無効化(要らない説)
 
 Plugin.build = ":TSUpdate"
 

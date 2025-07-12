@@ -1,5 +1,4 @@
 local Plugin = { "smoka7/hop.nvim" }
-Plugin.enabled = false  -- LSPのgoto機能で十分
 
 Plugin.version = "v2"
 
@@ -13,7 +12,7 @@ end
 
 Plugin.keys = {
 	-- { "<leader><leader>", "<cmd>HopWord<cr>" },
-	{ "<leader>j", "<cmd>HopWord<cr>" },
+	{ "<leader><leader>", "<cmd>HopWord<cr>" },
 }
 
 return Plugin
