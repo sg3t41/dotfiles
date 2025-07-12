@@ -53,11 +53,20 @@ function Plugin.config()
 	require("mason").setup()
 
 	require("mason-lspconfig").setup({
-		ensure_installed = { "lua_ls", "vtsls", "gopls", "jdtls" },
+		ensure_installed = { "lua_ls", "vtsls", "gopls", "jdtls", "bashls" }, -- bashls を ensure_installed に追加
 		handlers = {
 			function(server)
 				lspconfig[server].setup({
 					capabilities = lsp_capabilities,
+					-- root_dir の設定を強化 (bashls の「single file mode」対策)
+					root_dir = lspconfig.util.root_pattern(
+						'.git',
+						'Makefile',
+						'.shellcheckrc', -- ShellCheck の設定ファイル
+						'.bashrc', -- bashrc など、プロジェクトのルートを示すファイルがあれば
+						'.bash_profile',
+						'package.json' -- 他のプロジェクトタイプに合わせて追加
+					),
 				})
 			end,
 		},
@@ -65,9 +74,14 @@ function Plugin.config()
 
 	null_ls.setup({
 		sources = {
+			-- prettier の設定
 			null_ls.builtins.formatting.prettier.with({
-				extra_filetypes = { "typesctipt", "javascript", "css", "html", "java" },
+				extra_filetypes = { "typescript", "javascript", "css", "html", "java", "sh", "bash" },
 			}),
+
+			-- ここに ShellCheck を追加します！
+			null_ls.builtins.diagnostics.shellcheck, -- ShellCheck リンターを追加
+			null_ls.builtins.formatting.shfmt,    -- シェルスクリプトのフォーマッターを追加 (オプション)
 
 			require("plugins.lsp.lua_ls").setup({})
 		},
@@ -79,12 +93,12 @@ function Plugin.config()
 			"eslint-lsp",
 			"css-lsp",
 			"emmet-ls",
+			"shellcheck", -- Mason 経由で shellcheck をインストールする場合
+			"shfmt",   -- Mason 経由で shfmt をインストールする場合 (オプション)
 		},
 		automatic_installation = false,
 		handlers = {},
-	})
-
-	-- アンダーラインを波線にする設定
+	}) -- アンダーラインを波線にする設定
 	vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff0000" })
 	vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#ffa500" })
 	vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#00ff00" })

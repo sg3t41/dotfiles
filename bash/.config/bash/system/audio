@@ -1,0 +1,2 @@
+# PulseAudioの音量を150%に設定
+pactl set-sink-volume @DEFAULT_SINK@ 150%

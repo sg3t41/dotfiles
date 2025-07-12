@@ -8,14 +8,11 @@ help:
 	@echo "  local        - dotfilesをローカルインストール"
 	@echo "  secret-reveal - git secret で秘密ファイルを復元"
 	@echo "  secret-hide  - git secret で秘密ファイルを隠蔽"
-	@echo "  docker-build - Dockerイメージをビルド"
-	@echo "  docker-run   - Dockerコンテナを実行"
-	@echo "  docker       - Dockerイメージのビルドと実行"
-	@echo "  clean        - Dockerイメージを削除"
 
-local: secret-reveal
+#local: secret-reveal
+local: 
 	@echo "dotfilesをローカルにインストールします..."
-	@bash bin/.bin/dotfiles-installer.sh
+	@bash ./setup.sh git bash claude gemini kitty local nvim ssh starship tmux
 
 secret-reveal:
 	@echo "秘密ファイルを復元します..."

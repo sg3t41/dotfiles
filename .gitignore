@@ -74,6 +74,11 @@
 
 !/tmux/
 !/tmux/.tmux.conf
-.gitsecret/keys/random_seed
-!*.secret
-bash/.config/bash/shell/env/local.env
+
+!/local/
+!/local/.local/
+
+!/local/.local/bin/
+!/local/.local/bin/**
+
+!/setup.sh
