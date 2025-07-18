@@ -151,7 +151,3 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-
-**/.claude/settings.local.json
-
-**/.claude/settings.local.json

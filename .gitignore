@@ -27,17 +27,18 @@
 !/bash/.config/bash/system/**
 
 !/bin/
-!/bin/.bin/
-!/bin/.bin/**
+!/bin/.local
+!/bin/.local/bin/**
 
-!/claude/
-!/claude/.claude/
-!/claude/.claude/claude.md
-!/claude/.claude/settings.json
+!/llm/
+!/llm/.claude/
+!/llm/.claude/settings.json.secret
 
-!/gemini/
-!/gemini/.gemini/
-!/gemini/.gemini/settings.json
+!llm/.gemini/
+!/llm/.gemini/settings.json.secret
+
+!/llm/.local/prompts/**
+
 
 !/git/
 !/git/.config/
@@ -50,11 +51,6 @@
 !/.gitsecret/keys/trustdb.gpg
 !/.gitsecret/paths/
 !/.gitsecret/paths/mapping.cfg
-
-!/kitty/
-!/kitty/.config/
-!/kitty/.config/kitty/
-!/kitty/.config/kitty/kitty.conf
 
 !/nvim/
 !/nvim/.config/
@@ -70,13 +66,12 @@
 !/starship/.config/
 !/starship/.config/starship.toml
 
-!/tmux/
-!/tmux/.tmux.conf
-
 !/local/
 !/local/.local/
 
-!/local/.local/bin/
-!/local/.local/bin/**
+!/prompts/.local/prompts/**
+!/bin/.local/bin/**
+
 
 !/setup.sh
+gemini/.gemini/settings.json

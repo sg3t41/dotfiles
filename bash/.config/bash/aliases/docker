@@ -1,0 +1,3 @@
+# Docker Clean
+alias dc='docker-cleaner.sh'
+
