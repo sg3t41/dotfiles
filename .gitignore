@@ -73,5 +73,6 @@
 !/bin/.local/bin/**
 
 
-!/setup.sh
+!/setup/
+!/setup/setup.sh
 gemini/.gemini/settings.json

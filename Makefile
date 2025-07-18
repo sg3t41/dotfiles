@@ -11,7 +11,7 @@ help:
 
 local: secret-reveal
 	@echo "dotfilesをローカルにインストールします..."
-	@bash ./setup.sh git bash nvim ssh starship llm bin
+	@bash ./setup/setup.sh git bash nvim ssh starship llm bin
 
 secret-reveal:
 	@echo "秘密ファイルを復元します..."
