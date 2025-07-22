@@ -9,7 +9,7 @@ help:
 	@echo "  secret-reveal - git secret で秘密ファイルを復元"
 	@echo "  secret-hide  - git secret で秘密ファイルを隠蔽"
 
-local: secret-reveal
+local: 
 	@echo "dotfilesをローカルにインストールします..."
 	@bash ./setup/setup.sh git bash nvim ssh starship llm bin
 

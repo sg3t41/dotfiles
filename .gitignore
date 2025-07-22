@@ -32,10 +32,10 @@
 
 !/llm/
 !/llm/.claude/
-!/llm/.claude/settings.json.secret
+!/llm/.claude/settings.json
 
 !llm/.gemini/
-!/llm/.gemini/settings.json.secret
+!/llm/.gemini/settings.json
 
 !/llm/.local/prompts/**
 
@@ -76,3 +76,5 @@
 !/setup/
 !/setup/setup.sh
 gemini/.gemini/settings.json
+.gitsecret/keys/random_seed
+!*.secret
