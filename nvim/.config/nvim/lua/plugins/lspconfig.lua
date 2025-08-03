@@ -123,6 +123,7 @@ function Plugin.config()
 			params.processId = vim.NIL
 		end,
 		cmd = require 'lspcontainers'.command('tsserver'),
+		filetypes = { "ts", "js", "tsx", "jsx" },
 		root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd(), "package.json", ".npm_modules"),
 		on_attach = user.on_attach,
 		capabilities = common_capabilities,
@@ -136,6 +137,27 @@ function Plugin.config()
 		cmd = require 'lspcontainers'.command('tailwindcss'),
 		filetypes = { "django-html", "htmldjango", "gohtml", "html", "markdown", "php", "css", "postcss", "sass", "scss", "stylus", "javascript", "javascriptreact", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
 		root_dir = require 'lspconfig/util'.root_pattern("tailwind.config.js", "tailwind.config.ts", "postcss.config.js", "postcss.config.ts", "package.json", "node_modules", ".git", vim.fn.getcwd()),
+		on_attach = user.on_attach,
+		capabilities = common_capabilities,
+	}
+
+	-- C --
+	require 'lspconfig'.clangd.setup {
+		before_init = function(params)
+			params.processId = vim.NIL
+		end,
+		cmd = require 'lspcontainers'.command('clangd'),
+		filetypes = { "c", "h", },
+		root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd()),
+		on_attach = user.on_attach,
+		capabilities = common_capabilities,
+	}
+
+	-- Rust --
+	require 'lspconfig'.rust_analyzer.setup {
+		cmd = require 'lspcontainers'.command('rust_analyzer'),
+		filetypes = { "rust", "rs", },
+		root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd()),
 		on_attach = user.on_attach,
 		capabilities = common_capabilities,
 	}
