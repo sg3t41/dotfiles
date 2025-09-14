@@ -58,12 +58,11 @@ function Plugin.config()
 
 	-- git状態ファイルの色を変更
 	vim.defer_fn(function()
-		vim.api.nvim_set_hl(0, "NvimTreeGitFileNewHL", { fg = "#FFD700" })       -- 新規: 金色
-		vim.api.nvim_set_hl(0, "NvimTreeGitFileDirtyHL", { fg = "#00FF00" })     -- 変更済み: 明るい緑
+		vim.api.nvim_set_hl(0, "NvimTreeGitFileNewHL", { fg = "#FFD700" })     -- 新規: 金色
+		vim.api.nvim_set_hl(0, "NvimTreeGitFileDirtyHL", { fg = "#00FF00" })   -- 変更済み: 明るい緑
 		vim.api.nvim_set_hl(0, "NvimTreeGitFolderIgnoredHL", { fg = "#666666" }) -- 無視フォルダ: 灰色
-		vim.api.nvim_set_hl(0, "NvimTreeGitFileIgnoredHL", { fg = "#666666" })   -- 無視ファイル: 灰色
+		vim.api.nvim_set_hl(0, "NvimTreeGitFileIgnoredHL", { fg = "#666666" }) -- 無視ファイル: 灰色
 	end, 100)
 end
 
 return Plugin
-

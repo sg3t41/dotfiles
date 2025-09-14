@@ -1,0 +1,6 @@
+# Update Gemini
+alias ug='sudo npm update -g @google/gemini-cli'
+
+# Update all llms
+alias ual='ug' # && uc...
+

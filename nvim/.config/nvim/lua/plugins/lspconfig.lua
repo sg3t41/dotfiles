@@ -2,7 +2,7 @@ local Plugin = { "neovim/nvim-lspconfig" }
 Plugin.enabled = true
 Plugin.dependencies = {
 	"hrsh7th/cmp-nvim-lsp",
-	"lspcontainers/lspcontainers.nvim",
+	{ "lspcontainers/lspcontainers.nvim", dir = "/home/user925/workspace/dotfiles/nvim/.config/nvim/lua/libs/lsp/lspcontainers" },
 }
 Plugin.cmd = { "LspInfo" }
 Plugin.event = { "BufReadPre", "BufNewFile" }
@@ -23,7 +23,7 @@ function Plugin.init()
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 end
 
-function user.on_attach(client, bufnr)
+function user.on_attach(_, bufnr)
 	local bufmap = function(mode, lhs, rhs, desc)
 		local opts = { buffer = bufnr, desc = "LSP: " .. desc }
 		vim.keymap.set(mode, lhs, rhs, opts)
@@ -36,7 +36,7 @@ function user.on_attach(client, bufnr)
 	bufmap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", "Go to references")
 	bufmap("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Show signature")
 	bufmap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol")
-	bufmap({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format buffer")
+	bufmap({ "n", "x" }, "<leader>gf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format buffer")
 	bufmap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code action")
 	bufmap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", "Show line diagnostic")
 	bufmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Go to previous diagnostic")
@@ -48,9 +48,6 @@ function Plugin.config()
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")
 	local common_capabilities = cmp_nvim_lsp.default_capabilities()
 	local lspcontainers = require("lspcontainers")
-
-	-- デバッグ用：LSPログレベルを設定
-	vim.lsp.set_log_level("DEBUG")
 
 	-- HTML LSP --
 	lspconfig.html.setup {
@@ -87,9 +84,11 @@ function Plugin.config()
 
 	-- GO LSP --
 	lspconfig.gopls.setup {
-		cmd = lspcontainers.command('gopls', {
-			container_runtime = "podman",
-		}),
+		--		cmd = lspcontainers.command('gopls', {
+		--			container_runtime = "podman",
+		--		}),
+		cmd = require 'lspcontainers'.command('gopls'),
+		filetypes = { "go" },
 		on_attach = user.on_attach,
 		capabilities = common_capabilities,
 		root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd(), "go.mod"),
@@ -123,7 +122,7 @@ function Plugin.config()
 			params.processId = vim.NIL
 		end,
 		cmd = require 'lspcontainers'.command('tsserver'),
-		filetypes = { "ts", "js", "tsx", "jsx" },
+		filetypes = { "ts", "js", "tsx", "jsx", "javascript", "javascriptreact", "rescript", "typescript", "typescriptreact", ".gs" },
 		root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd(), "package.json", ".npm_modules"),
 		on_attach = user.on_attach,
 		capabilities = common_capabilities,
@@ -141,25 +140,34 @@ function Plugin.config()
 		capabilities = common_capabilities,
 	}
 
-	-- C --
-	require 'lspconfig'.clangd.setup {
+	-- Python LSP --
+	lspconfig.pyright.setup {
+		cmd = require 'lspcontainers'.command('pyright'),
+		filetypes = { "py", "python" },
+		on_attach = user.on_attach,
+		capabilities = common_capabilities,
+		root_dir = require('lspconfig/util').root_pattern("pyproject.toml", "setup.py", ".git"),
+	}
+
+	-- rust analyzer --
+	require 'lspconfig'.rust_analyzer.setup {
 		before_init = function(params)
 			params.processId = vim.NIL
 		end,
-		cmd = require 'lspcontainers'.command('clangd'),
-		filetypes = { "c", "h", },
-		root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd()),
+		cmd = require 'lspcontainers'.command('rust_analyzer'),
+		filetypes = { "rust", "rs" },
+		root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd(), "Cargo.toml"),
 		on_attach = user.on_attach,
 		capabilities = common_capabilities,
 	}
 
-	-- Rust --
-	require 'lspconfig'.rust_analyzer.setup {
-		cmd = require 'lspcontainers'.command('rust_analyzer'),
-		filetypes = { "rust", "rs", },
-		root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd()),
+	-- Python LSP --
+	lspconfig.clangd.setup {
+		cmd = require 'lspcontainers'.command('clangd'),
+		filetypes = { "c", "cpp", "h" },
 		on_attach = user.on_attach,
 		capabilities = common_capabilities,
+		root_dir = require('lspconfig/util').root_pattern("Makefile", ".git"),
 	}
 end
 

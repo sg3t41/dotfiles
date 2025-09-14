@@ -24,3 +24,6 @@ alias rgjs='rg --type js'
 alias rgts='rg --type ts'
 alias rgpy='rg --type py'
 alias rggo='rg --type go'
+
+# コピー
+alias cpc="xclip -selection clipboard"
