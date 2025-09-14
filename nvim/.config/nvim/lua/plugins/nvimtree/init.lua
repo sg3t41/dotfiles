@@ -50,6 +50,9 @@ Plugin.opts = {
 	filters = {
 		dotfiles = false,
 		git_ignored = false,
+		custom = {
+			".git",
+		},
 	},
 }
 
